@@ -1,0 +1,24 @@
+<template>
+    <lightning-button label="Click Me" onclick={handleClick}>Click me !</lightning-button>
+        
+    <lightning-card title="HelloForEach">
+        <ul>
+            <template for:each={Contacts} for:item="contact">
+                <li key={contact.id}>{contact.name}, {contact.age}, {contact.city}</li>
+            </template>
+        </ul>
+    </lightning-card>
+    <br><br>
+    <lightning-card title="iterator">
+        <ul>
+            <template iterator:user={Contacts} >
+                <li key={user.value.id}>
+                    <template if:true={user.first}><hr></template>
+                     {user.value.name}, {user.value.age}, {user.value.city}
+                    <template if:true={user.last}><hr></template>
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+
+</template>
